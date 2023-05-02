@@ -1,8 +1,13 @@
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [check, setCheck] = useState(false);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+  };
   return (
     <div
       className="grid justify-center content-center bg-no-repeat bg-cover bg-left-top h-full"
@@ -10,8 +15,8 @@ const Login = () => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${"https://media.gettyimages.com/id/653331096/photo/chinese-cuisine.webp?s=2048x2048&w=gi&k=20&c=2DLxojNEsNDoYcU-f3XyPjsBPdjMVCm-6o1JizBCeFo="})`,
       }}
     >
-      <Card className="lg:w-[450px]">
-        <form className="flex flex-col gap-4">
+      <Card className="lg:w-[450px] p-4">
+        <form className="flex flex-col gap-4 " onSubmit={handleLogin}>
           <h1 className="text-3xl font-semibold text-center text-slate-700">
             Login Now
           </h1>
@@ -34,20 +39,28 @@ const Login = () => {
             <TextInput id="password1" type="password" required={true} />
           </div>
           <div className="flex items-center gap-2">
-            <Checkbox id="remember" />
+            <Checkbox
+              onClick={(event) => setCheck(event.target.checked)}
+              id="remember"
+              className="text-orange-500 focus:ring-orange-500"
+            />
             <Label htmlFor="remember">Remember me</Label>
           </div>
           <p className="text-sm font-light text-gray-500 ">
             Don’t have an account yet ?
             <Link
               to="/register"
-              className="font-medium text-orange-400 hover:underline ml-2"
+              className="font-medium text-orange-500 hover:underline ml-2"
             >
               Sign up
             </Link>
           </p>
-          <Button className="my-3" type="submit" color="warning">
-            Submit
+          <Button
+            disabled={!check}
+            className="my-3 bg-orange-500 hover:bg-orange-700"
+            type="submit"
+          >
+            Login
           </Button>
         </form>
       </Card>

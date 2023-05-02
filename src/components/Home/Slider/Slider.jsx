@@ -2,7 +2,6 @@ import { Rating } from "flowbite-react";
 import React from "react";
 
 const Slider = ({ data }) => {
-  console.log(data);
   const { title, image, desc } = data;
   return (
     <div

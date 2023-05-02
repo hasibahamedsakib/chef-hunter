@@ -14,6 +14,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:3001/home-slider/"),
       },
       {
         path: "login",

@@ -1,19 +1,56 @@
+import { updateProfile } from "firebase/auth";
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Loader from "../../pages/Loader/Loader";
 
 const Register = () => {
   const [check, setCheck] = useState(false);
+  const [error, setError] = useState("");
+
+  const { userRegister, loading } = useContext(AuthContext);
+
   const handleRegister = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
-    const photoURL = event.target.photoURL.value;
     const password = event.target.password.value;
-    const checkValue = event.target.checked;
-    console.log(name);
-    console.log(email);
-    console.log(photoURL);
+    const photoURL = event.target.photoURL.value;
+
+    if (loading) {
+      return <Loader />;
+    }
+    setError("");
+
+    if (password.length < 6) return setError("password must be 6 character");
+    if (email.length < 1) return setError("Please provide your email address");
+
+    userRegister(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        updateProfile(currentUser, {
+          displayName: name,
+          photoURL: photoURL,
+        })
+          .then(() => {
+            toast.success("Profile Updated !", {
+              position: toast.POSITION.TOP_LEFT,
+            });
+          })
+          .catch((error) => {
+            console.log(error.message);
+            return setError(error.message);
+          });
+        toast.success("User create successful !", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+
+        console.log(currentUser);
+      })
+      .catch((err) => setError(err.message));
   };
 
   return (
@@ -75,6 +112,7 @@ const Register = () => {
               required={true}
             />
           </div>
+          <Label className="text-red-500 my-1">{error}</Label>
           <div className="flex items-center gap-2">
             <Checkbox
               onClick={(event) => setCheck(event.target.checked)}
@@ -94,6 +132,7 @@ const Register = () => {
               Login
             </Link>
           </p>
+
           <Button
             className="my-3 bg-orange-500 hover:bg-orange-700"
             type="submit"

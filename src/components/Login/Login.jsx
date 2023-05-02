@@ -1,12 +1,30 @@
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Loader from "../../pages/Loader/Loader";
 
 const Login = () => {
+  const { userLogin, loading } = useContext(AuthContext);
   const [check, setCheck] = useState(false);
+  const [error, setError] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    if (loading) {
+      return <Loader />;
+    }
+    userLogin(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        console.log(currentUser);
+        alert("Login Success");
+      })
+      .catch((error) => {
+        return setError(error.message);
+      });
   };
   return (
     <div
@@ -25,6 +43,7 @@ const Login = () => {
               <Label htmlFor="email1" value="Your email" />
             </div>
             <TextInput
+              name="email"
               className="rounded-full"
               id="email1"
               type="email"
@@ -36,8 +55,14 @@ const Login = () => {
             <div className="mb-2 block">
               <Label htmlFor="password1" value="Your password" />
             </div>
-            <TextInput id="password1" type="password" required={true} />
+            <TextInput
+              name="password"
+              id="password1"
+              type="password"
+              required={true}
+            />
           </div>
+          <Label className="text-red-500 my-1">{error}</Label>
           <div className="flex items-center gap-2">
             <Checkbox
               onClick={(event) => setCheck(event.target.checked)}

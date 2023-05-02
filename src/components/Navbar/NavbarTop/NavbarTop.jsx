@@ -8,6 +8,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const NavbarTop = () => {
   return (
     <div className="bg-[#f2f1ee]">
@@ -39,12 +40,15 @@ const NavbarTop = () => {
             </span>
             Saved Recipe
           </p>
-          <p className="flex items-center hover:text-slate-800">
+          <Link
+            to="/login"
+            className="flex items-center hover:text-slate-800 border rounded border-orange-400 px-5 py-2 "
+          >
             <span className="text-orange-500 mr-3">
               <FaLock />
             </span>
             Login
-          </p>
+          </Link>
         </div>
       </div>
     </div>

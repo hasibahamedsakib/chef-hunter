@@ -11,7 +11,7 @@ const Slider = ({ data }) => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${image})`,
       }}
     >
-      <div className="text-white grid items-center justify-center lg:pt-48 text-center space-y-4">
+      <div className="text-white  grid items-center justify-center pt-24 lg:pt-48 text-center space-y-4">
         <Rating size="md" className="mx-auto">
           <Rating.Star className="text-slate-50" />
           <Rating.Star className="text-slate-50" />

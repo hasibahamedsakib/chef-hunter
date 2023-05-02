@@ -1,26 +1,28 @@
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import Loader from "../../pages/Loader/Loader";
+import Loading from "../../pages/Loader/Loading";
 
 const Login = () => {
   const { userLogin, loading } = useContext(AuthContext);
   const [check, setCheck] = useState(false);
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
+    setError("");
     if (loading) {
-      return <Loader />;
+      return <Loading />;
     }
     userLogin(email, password)
       .then((result) => {
         const currentUser = result.user;
         console.log(currentUser);
         alert("Login Success");
+        navigate("/");
       })
       .catch((error) => {
         return setError(error.message);

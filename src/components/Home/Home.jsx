@@ -7,8 +7,8 @@ const Home = () => {
   const sliderData = useLoaderData();
 
   return (
-    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 py-5">
-      <Carousel className="h-[500px]">
+    <div className="h-[500px]  py-5">
+      <Carousel className="">
         {sliderData.map((sd) => (
           <Slider key={sd.id} data={sd} />
         ))}

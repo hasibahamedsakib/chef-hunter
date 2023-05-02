@@ -1,6 +1,6 @@
 import React from "react";
 import "./loading.css";
-const Loader = () => {
+const Loading = () => {
   return (
     <div className="body">
       <svg
@@ -92,4 +92,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default Loading;

@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   FaFacebookSquare,
   FaInstagram,
   FaLock,
   FaRegFileAlt,
   FaRegHeart,
+  FaSignOutAlt,
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 const NavbarTop = () => {
+  const { user, logoutUser } = useContext(AuthContext);
   return (
     <div className="bg-[#f2f1ee]">
       <div className="text-[#8c8e95] flex items-center justify-between containeR">
@@ -40,15 +43,30 @@ const NavbarTop = () => {
             </span>
             Saved Recipe
           </p>
-          <Link
-            to="/login"
-            className="flex items-center hover:text-slate-800 border rounded border-orange-400 px-5 py-2 "
-          >
-            <span className="text-orange-500 mr-3">
-              <FaLock />
+          {user && user ? (
+            <span className="space-x-2 flex items-center">
+              <img
+                title={user.displayName}
+                src={user.photoURL}
+                className="w-9 h-9 rounded-md cursor-pointer"
+              />
+              <FaSignOutAlt
+                title="Log Out"
+                onClick={() => logoutUser()}
+                className="w-8 h-8 hover:text-orange-500 cursor-pointer"
+              />
             </span>
-            Login
-          </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center hover:text-slate-800 border rounded border-orange-400 px-5 py-2 "
+            >
+              <span className="text-orange-500 mr-3">
+                <FaLock />
+              </span>
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

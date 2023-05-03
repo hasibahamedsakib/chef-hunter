@@ -9,6 +9,7 @@ import {
   signOut,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import app from "../Firebase/firebase.config";
 export const AuthContext = createContext(null);
 
@@ -45,6 +46,7 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const user = result.user;
         setUsers(user);
+        <NavLink to="/" />;
         console.log(user);
       })
       .catch((err) => console.log(err.message));
@@ -54,6 +56,7 @@ const AuthProvider = ({ children }) => {
       .then((result) => {
         const user = result.user;
         setUsers(user);
+        <NavLink to="/" />;
         console.log(user);
       })
       .catch((err) => console.log(err.message));

@@ -1,16 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import FooterCompo from "../../components/Footer/Footer";
+// import FooterCompo from "../../components/Footer/Footer";
 import NavbarCompo from "../../components/Navbar/Navbar";
 
 const Main = () => {
   return (
     <div>
       <NavbarCompo />
-      <div className="details h-screen">
+      <div className="details ">
         <Outlet />
       </div>
-      <FooterCompo />
+      {/* <FooterCompo /> */}
     </div>
   );
 };

@@ -1,14 +1,17 @@
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { userLogin, githubLogin, googleLogin } = useContext(AuthContext);
+  const { userLogin, githubLogin, googleLogin, users } =
+    useContext(AuthContext);
   const [check, setCheck] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname;
   const handleLogin = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -20,7 +23,7 @@ const Login = () => {
         const currentUser = result.user;
         console.log(currentUser);
         alert("Login Success");
-        navigate("/");
+        navigate(from || "/");
       })
       .catch((error) => {
         return setError(error.message);

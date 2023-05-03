@@ -1,5 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import ChefDetails from "../components/Chef/ChefDetails/ChefDetails";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
@@ -15,7 +17,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:3001/home-slider/"),
+      },
+      {
+        path: "chef/:id",
+        element: (
+          <PrivetRoute>
+            <ChefDetails />
+          </PrivetRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3001/chef/${params.id}`),
       },
       {
         path: "login",

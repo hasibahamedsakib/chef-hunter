@@ -30,12 +30,7 @@ const Login = () => {
       });
   };
   return (
-    <div
-      className="grid justify-center content-center bg-no-repeat bg-cover bg-left-top h-full"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${"https://media.gettyimages.com/id/653331096/photo/chinese-cuisine.webp?s=2048x2048&w=gi&k=20&c=2DLxojNEsNDoYcU-f3XyPjsBPdjMVCm-6o1JizBCeFo="})`,
-      }}
-    >
+    <div className="grid justify-center content-center bg-no-repeat bg-cover bg-left-top h-full py-10">
       <Card className="lg:w-[450px] p-4">
         <form className="flex flex-col gap-4 " onSubmit={handleLogin}>
           <h1 className="text-3xl font-semibold text-center text-slate-700">
@@ -84,8 +79,9 @@ const Login = () => {
             </Link>
           </p>
           <Button
+            gradientDuoTone="pinkToOrange"
             disabled={!check}
-            className="my-3 bg-orange-500 hover:bg-orange-700"
+            className="my-3 "
             type="submit"
           >
             Login

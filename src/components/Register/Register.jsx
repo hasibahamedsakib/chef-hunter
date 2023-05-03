@@ -54,12 +54,7 @@ const Register = () => {
   };
 
   return (
-    <div
-      className="grid justify-center content-center bg-no-repeat bg-cover bg-left-top h-full"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${"https://149410494.v2.pressablecdn.com/wp-content/uploads/2020/03/pecan-pie-tart-in-baking-dish-traditional-festive-9WMXQ3Z-700x525.jpg"})`,
-      }}
-    >
+    <div className="grid justify-center content-center bg-no-repeat bg-cover bg-left-top h-full py-10">
       <Card className="lg:w-[450px] p-5">
         <form className="flex flex-col gap-4" onSubmit={handleRegister}>
           <h1 className="text-3xl font-semibold text-center text-slate-700">
@@ -134,7 +129,8 @@ const Register = () => {
           </p>
 
           <Button
-            className="my-3 bg-orange-500 hover:bg-orange-700"
+            gradientDuoTone="pinkToOrange"
+            className="my-3"
             type="submit"
             disabled={!check}
           >

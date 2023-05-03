@@ -1,5 +1,6 @@
-import { Card } from "flowbite-react";
+import { Button, Card, Rating } from "flowbite-react";
 import React from "react";
+import { FaHeart } from "react-icons/fa";
 
 const SingleChef = ({ chef }) => {
   console.log(chef);
@@ -13,14 +14,34 @@ const SingleChef = ({ chef }) => {
     best_recipes,
   } = chef;
   return (
-    <div className="max-w-sm">
+    <div className="max-w-sm pb-6">
       <Card imgAlt="this is image" imgSrc={img_url}>
-        <h5 className="text-2xl font-semibold tracking-tight text-gray-800 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight text-slate-600 dark:text-white">
           {name}
         </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          {description}
-        </p>
+        <div className="flex gap-3 items-center justify-between">
+          <Rating size="md">
+            <Rating.Star className="text-slate-800" />
+            <Rating.Star className="text-slate-800" />
+            <Rating.Star className="text-slate-800" />
+            <Rating.Star className="text-slate-800" />
+            <Rating.Star filled={false} />
+          </Rating>
+          <span className="text-slate-700 gap-x-2 flex font-bold items-center">
+            <FaHeart className="h-5 w-5" /> 105
+          </span>
+        </div>
+        <div className="  border-y-2 flex font-semibold text-xl text-slate-600 mt-2">
+          <div className=" border-r-2 p-2 grow">
+            <p>Experience {experience_years} Years</p>
+          </div>
+          <div className=" grow p-2">
+            <p>Recipes {best_recipes.length}</p>
+          </div>
+        </div>
+        <Button outline={true} gradientDuoTone="pinkToOrange" className="my-3">
+          View Recipe Details
+        </Button>
       </Card>
     </div>
   );

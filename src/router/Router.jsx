@@ -26,7 +26,7 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3001/chef/${params.id}`),
+          fetch(`https://chef-hunter-server-rho.vercel.app/chef/${params.id}`),
       },
       {
         path: "login",

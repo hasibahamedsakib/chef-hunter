@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <div
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0 , 0, 0.6), rgba(0, 0, 0, 0.6)),url('404.png')`,
+        backgroundImage: `linear-gradient(rgba(0,0 , 0, 0.6), rgba(0, 0, 0, 0.6)),url('/404.png')`,
       }}
       className="bg-cover bg-no-repeat bg-center w-full h-screen grid justify-center items-center"
     >

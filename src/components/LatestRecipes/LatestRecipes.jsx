@@ -6,7 +6,7 @@ import SingleRecipes from "./SingleRecipes/SingleRecipes";
 const LatestRecipes = () => {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3001/recipes")
+    fetch("https://chef-hunter-server-rho.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);

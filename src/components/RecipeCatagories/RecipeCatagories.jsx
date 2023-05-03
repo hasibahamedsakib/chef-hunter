@@ -4,7 +4,7 @@ import SingleCatagories from "./SingleCategories/SingleCatagories";
 const RecipeCatagories = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3001/catagories")
+    fetch("https://chef-hunter-server-rho.vercel.app/catagories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);

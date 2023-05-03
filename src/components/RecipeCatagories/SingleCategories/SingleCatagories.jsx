@@ -1,7 +1,7 @@
 import React from "react";
 
-const SingleRecipe = ({ recipe }) => {
-  const { title, image } = recipe;
+const SingleCatagories = ({ catagories }) => {
+  const { title, image } = catagories;
   return (
     <div className="text-center pt-10">
       <img
@@ -14,4 +14,4 @@ const SingleRecipe = ({ recipe }) => {
   );
 };
 
-export default SingleRecipe;
+export default SingleCatagories;

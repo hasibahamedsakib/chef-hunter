@@ -45,7 +45,7 @@ const Login = () => {
               className="rounded-full"
               id="email1"
               type="email"
-              placeholder="name@flowbite.com"
+              placeholder="Enter Your Email"
               required={true}
             />
           </div>
@@ -57,6 +57,7 @@ const Login = () => {
               name="password"
               id="password1"
               type="password"
+              placeholder="Enter Your Password"
               required={true}
             />
           </div>
@@ -79,6 +80,7 @@ const Login = () => {
             </Link>
           </p>
           <Button
+            size="lg"
             gradientDuoTone="pinkToOrange"
             disabled={!check}
             className="my-3 "
@@ -87,21 +89,25 @@ const Login = () => {
             Login
           </Button>
         </form>
-
-        <button
+        <p className="text-orange-500 text-center">
+          <hr />
+        </p>
+        <Button
+          gradientDuoTone="cyanToBlue"
+          size="lg"
           onClick={() => googleLogin()}
-          className="w-full h-10 border-none focus:outline-none bg-teal-400 text-white text-xl rounded-md flex gap-x-3 justify-center items-center  focus:ring-2 ring-orange-500"
         >
-          <FaGoogle />
+          <FaGoogle className="mr-2" />
           Login With Google
-        </button>
-        <button
+        </Button>
+        <Button
+          size="lg"
+          gradientMonochrome="success"
           onClick={() => githubLogin()}
-          className="w-full h-10 border-none focus:outline-none bg-slate-500 text-white text-xl rounded-md flex gap-x-3 justify-center items-center focus:ring-2 ring-orange-500"
         >
-          <FaGithub />
+          <FaGithub className="mr-2" />
           Login With Github
-        </button>
+        </Button>
       </Card>
     </div>
   );

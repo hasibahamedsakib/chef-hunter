@@ -16,7 +16,7 @@ const SingleChef = ({ chef }) => {
   return (
     <div className="max-w-sm pb-6">
       <Card imgAlt="this is image" imgSrc={img_url}>
-        <h5 className="text-2xl font-bold tracking-tight text-slate-600 dark:text-white">
+        <h5 className="text-2xl font-bold tracking-tight text-slate-600 dark:text-white  hover:text-orange-500 duration-300">
           {name}
         </h5>
         <div className="flex gap-3 items-center justify-between">
@@ -31,11 +31,11 @@ const SingleChef = ({ chef }) => {
             <FaHeart className="h-5 w-5" /> 105
           </span>
         </div>
-        <div className="  border-y-2 flex font-semibold text-xl text-slate-600 mt-2">
-          <div className=" border-r-2 p-2 grow">
+        <div className="  border-y-2 flex font-semibold  text-slate-600 mt-2">
+          <div className=" border-r-2 py-3 px-2 grow hover:text-orange-500 duration-300">
             <p>Experience {experience_years} Years</p>
           </div>
-          <div className=" grow p-2">
+          <div className=" grow py-3 px-2  hover:text-orange-500 duration-300">
             <p>Recipes {best_recipes.length}</p>
           </div>
         </div>

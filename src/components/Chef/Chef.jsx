@@ -16,12 +16,13 @@ const Chef = () => {
         backgroundImage: `url('https://149410494.v2.pressablecdn.com/wp-content/uploads/2020/03/pattern-home.jpg')`,
       }}
     >
-      <h1 className="text-4xl font-serif  text-center  font-semibold">
+      <h3 className="text-xl font-mono text-orange-500 text-center  font-bold py-3">
         Best Chef in China
-      </h1>
-      <h3 className="text-xl font-mono text-orange-500 text-center  font-bold mb-14">
-        Top in the world..
       </h3>
+      <h1 className="text-5xl font-bold text-slate-800  text-center  mb-14">
+        Top of the world
+      </h1>
+
       <div className="containeR grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         {chefData.map((cd) => (
           <SingleChef chef={cd} key={cd.id} />

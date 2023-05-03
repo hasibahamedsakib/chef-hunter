@@ -92,7 +92,7 @@ const Register = () => {
               id="email1"
               type="email"
               name="email"
-              placeholder="name@flowbite.com"
+              placeholder="Enter Your Email"
               required={true}
             />
           </div>
@@ -105,6 +105,7 @@ const Register = () => {
               type="password"
               name="password"
               required={true}
+              placeholder="Enter Your Password"
             />
           </div>
           <Label className="text-red-500 my-1">{error}</Label>
@@ -129,6 +130,7 @@ const Register = () => {
           </p>
 
           <Button
+            size="lg"
             gradientDuoTone="pinkToOrange"
             className="my-3"
             type="submit"

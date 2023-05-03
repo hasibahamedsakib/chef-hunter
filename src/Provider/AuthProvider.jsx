@@ -1,4 +1,5 @@
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -13,6 +14,8 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
 const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState({});
   const [loading, setLoading] = useState(true);
@@ -46,6 +49,15 @@ const AuthProvider = ({ children }) => {
       })
       .catch((err) => console.log(err.message));
   };
+  const githubLogin = () => {
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        const user = result.user;
+        setUsers(user);
+        console.log(user);
+      })
+      .catch((err) => console.log(err.message));
+  };
   const contextValue = {
     userRegister,
     userLogin,
@@ -53,6 +65,7 @@ const AuthProvider = ({ children }) => {
     users,
     loading,
     googleLogin,
+    githubLogin,
   };
 
   return (

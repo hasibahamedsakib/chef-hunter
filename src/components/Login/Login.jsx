@@ -1,11 +1,12 @@
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext, useState } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Loading from "../../pages/Loader/Loading";
 
 const Login = () => {
-  const { userLogin, loading } = useContext(AuthContext);
+  const { userLogin, loading, googleLogin } = useContext(AuthContext);
   const [check, setCheck] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -90,6 +91,18 @@ const Login = () => {
             Login
           </Button>
         </form>
+
+        <button
+          onClick={() => googleLogin()}
+          className="w-full h-10 border-none focus:outline-none bg-teal-400 text-white text-xl rounded-md flex gap-x-3 justify-center items-center  focus:ring-2 ring-orange-500"
+        >
+          <FaGoogle />
+          Login With Google
+        </button>
+        <button className="w-full h-10 border-none focus:outline-none bg-slate-500 text-white text-xl rounded-md flex gap-x-3 justify-center items-center focus:ring-2 ring-orange-500">
+          <FaGithub />
+          Login With Github
+        </button>
       </Card>
     </div>
   );

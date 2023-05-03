@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 const NavbarTop = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { users, logoutUser } = useContext(AuthContext);
   return (
     <div className="bg-[#f2f1ee]">
       <div className="text-[#8c8e95] flex items-center justify-between containeR">
@@ -43,11 +43,11 @@ const NavbarTop = () => {
             </span>
             Saved Recipe
           </p>
-          {user && user ? (
+          {users && users ? (
             <span className="space-x-2 flex items-center">
               <img
-                title={user.displayName}
-                src={user.photoURL}
+                title={users.displayName}
+                src={users.photoURL}
                 className="w-9 h-9 rounded-md cursor-pointer"
               />
               <FaSignOutAlt

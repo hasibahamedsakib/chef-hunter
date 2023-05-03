@@ -4,7 +4,6 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Provider/AuthProvider";
-import Loading from "../../pages/Loader/Loading";
 
 const Register = () => {
   const [check, setCheck] = useState(false);
@@ -12,24 +11,26 @@ const Register = () => {
 
   const { userRegister, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(loading);
+
   const handleRegister = (event) => {
     event.preventDefault();
+    console.log("clicked");
     setError("");
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const photoURL = event.target.photoURL.value;
 
-    if (loading) {
-      return <Loading />;
+    if (password.length < 6) {
+      setError("password must be 6 character");
     }
-
-    if (password.length < 6) return setError("password must be 6 character");
-    if (email.length < 1) return setError("Please provide your email address");
+    if (email.length < 1) {
+      setError("Please provide your email address");
+    }
 
     userRegister(email, password)
       .then((result) => {
+        console.log(result);
         const currentUser = result.user;
         if (currentUser) {
           updateProfile(currentUser, {

@@ -4,7 +4,7 @@ import { FaRegClock, FaRegFolderOpen } from "react-icons/fa";
 
 const SingleRecipes = ({ recipe }) => {
   const { title, desc, image, type, time } = recipe;
-  console.log(recipe);
+
   return (
     <div className="max-w-sm pb-10">
       <Card imgAlt="this is image" imgSrc={image}>

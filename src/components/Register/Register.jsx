@@ -2,7 +2,7 @@ import { updateProfile } from "firebase/auth";
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
@@ -46,8 +46,12 @@ const Register = () => {
             });
         }
 
+        Swal.fire(
+          "Registration Successful",
+          "Your account already created",
+          "success"
+        );
         navigate("/");
-        alert("Registration compleate");
         console.log(currentUser);
       })
       .catch((err) => setError(err.message));

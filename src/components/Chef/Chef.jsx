@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
+import Loading from "../../pages/Loader/Loading";
 import SingleChef from "./SingleChef/SingleChef";
 
 const Chef = () => {
   const [chefData, setChefData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:3001/chef")
       .then((res) => res.json())
-      .then((data) => setChefData(data));
+      .then((data) => {
+        setChefData(data);
+        setLoading(false);
+      });
   }, []);
-
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div
       className="py-20"

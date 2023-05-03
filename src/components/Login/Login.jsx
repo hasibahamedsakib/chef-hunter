@@ -2,8 +2,8 @@ import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
-
 const Login = () => {
   const { userLogin, githubLogin, googleLogin, users } =
     useContext(AuthContext);
@@ -22,7 +22,7 @@ const Login = () => {
       .then((result) => {
         const currentUser = result.user;
         console.log(currentUser);
-        alert("Login Success");
+        Swal.fire("Login success!", "You are already loggedIn", "success");
         navigate(from || "/");
       })
       .catch((error) => {

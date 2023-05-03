@@ -1,9 +1,9 @@
 import { Button, Card, Rating } from "flowbite-react";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
-  console.log(chef);
   const {
     id,
     name,
@@ -39,9 +39,15 @@ const SingleChef = ({ chef }) => {
             <p>Recipes {best_recipes.length}</p>
           </div>
         </div>
-        <Button outline={true} gradientDuoTone="pinkToOrange" className="my-3">
-          View Recipe Details
-        </Button>
+        <Link to={`/chef/${id}`}>
+          <Button
+            outline={true}
+            gradientDuoTone="pinkToOrange"
+            className="my-3 w-full"
+          >
+            View Recipe Details
+          </Button>
+        </Link>
       </Card>
     </div>
   );

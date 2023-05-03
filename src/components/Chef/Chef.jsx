@@ -22,7 +22,7 @@ const Chef = () => {
       <h3 className="text-xl font-mono text-orange-500 text-center  font-bold mb-14">
         Top in the world..
       </h3>
-      <div className="containeR grid grid-cols-3 gap-5 ">
+      <div className="containeR grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         {chefData.map((cd) => (
           <SingleChef chef={cd} key={cd.id} />
         ))}

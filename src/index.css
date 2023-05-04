@@ -5,3 +5,6 @@
 .containeR {
   @apply w-full max-w-7xl px-5 py-3 mx-auto;
 }
+.active {
+  @apply text-orange-500;
+}

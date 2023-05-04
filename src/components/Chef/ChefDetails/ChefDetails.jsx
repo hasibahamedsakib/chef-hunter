@@ -58,7 +58,7 @@ const ChefDetails = () => {
             <div className="flex gap-x-3 py-2  lg:justify-end ">
               <span className="bg-slate-100 flex items-center gap-x-2  p-3 px-4 rounded-3xl">
                 <FaCircle className="h-4 w-4 text-[#ffb23f]" />
-                Profational
+                Professional
               </span>
               <span className="bg-slate-100 p-3 px-4 flex gap-x-3 items-center rounded-3xl">
                 <FaHouseUser className="h-5 w-5 text-[#ffb23f]" />
@@ -69,6 +69,14 @@ const ChefDetails = () => {
               </span>
             </div>
           </div>
+        </div>
+        <div>
+          <h3 className="text-xl font-mono text-orange-500 text-center  font-bold py-3 mt-10">
+            Top Most Popular Recipes
+          </h3>
+          <h1 className="text-5xl font-bold text-slate-800  text-center  mb-14">
+            Best Recipes
+          </h1>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-5 my-10">
           {best_recipes.map((bestRecipe, index) => (

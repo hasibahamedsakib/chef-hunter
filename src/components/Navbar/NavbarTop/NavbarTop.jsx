@@ -1,3 +1,4 @@
+import { Tooltip } from "flowbite-react";
 import React, { useContext } from "react";
 import {
   FaFacebookSquare,
@@ -45,16 +46,19 @@ const NavbarTop = () => {
           </p>
           {users && users ? (
             <span className="space-x-2 flex items-center">
-              <img
-                title={users.displayName}
-                src={users.photoURL}
-                className="w-9 h-9 rounded-md cursor-pointer"
-              />
-              <FaSignOutAlt
-                title="Log Out"
-                onClick={() => logoutUser()}
-                className="w-8 h-8 hover:text-orange-500 cursor-pointer"
-              />
+              <Tooltip content={users.displayName}>
+                <img
+                  src={users.photoURL}
+                  className="w-9 h-9 rounded-md cursor-pointer"
+                />
+              </Tooltip>
+              <Tooltip content="LogOut">
+                <FaSignOutAlt
+                  title="Log Out"
+                  onClick={() => logoutUser()}
+                  className="w-8 h-8 hover:text-orange-500 cursor-pointer"
+                />
+              </Tooltip>
             </span>
           ) : (
             <Link

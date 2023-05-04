@@ -5,12 +5,42 @@ const NavbarMenu = () => {
   return (
     <div className="containeR py-3">
       <nav className="flex  items-center justify-center space-x-14 font-semibold text-slate-600 hover:text-slate-800 ">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="">Browse Recipes</NavLink>
-        <NavLink to="">Submit Recipes </NavLink>
-        <NavLink to="">Pages</NavLink>
-        <NavLink to="">Blog</NavLink>
-        <NavLink to="">Contact</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to="/latest-recipes"
+        >
+          Latest Recipes
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to="/submit-recipes"
+        >
+          Submit Recipes
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to="/pages"
+        >
+          Pages
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to="/blog"
+        >
+          Blog
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "")}
+          to="/contact"
+        >
+          Contact
+        </NavLink>
         <Link className="">
           <FaSearch />
         </Link>

@@ -5,21 +5,26 @@ import Pdf from "react-to-pdf";
 const Blog = () => {
   const ref = useRef();
   return (
-    <div className="containeR">
-      <div>
-        <h1>Blog pages</h1>
+    <div className="containeR bg-slate-200 p-5 my-10 rounded-lg">
+      <h1 className="text-5xl py-5 font-semibold text-center ">Blog pages</h1>
+      <div className=" flex flex-col w-36 mx-auto justify-center">
         <Pdf targetRef={ref} filename="document.pdf">
           {({ toPdf }) => (
-            <Button onClick={toPdf} className="button">
+            <Button
+              size="lg"
+              gradientDuoTone="pinkToOrange"
+              onClick={toPdf}
+              className="button"
+            >
               Generate PDF
             </Button>
           )}
         </Pdf>
       </div>
-      <div ref={ref} className="bg-orange-600 text-white p-6">
+      <div ref={ref} className=" p-6">
         <div>
           <h2 className="text-3xl py-3">
-            Tell us the differences between uncontrolled and controlled
+            1. Tell us the differences between uncontrolled and controlled
             components.
           </h2>
           <p>
@@ -42,7 +47,7 @@ const Blog = () => {
         </div>
         <div>
           <h2 className="text-3xl py-3">
-            How to validate React props using PropTypes
+            2. How to validate React props using PropTypes
           </h2>
           <p>
             PropTypes is a library that helps you check the types of the props
@@ -60,7 +65,7 @@ const Blog = () => {
 
         <div>
           <h2 className="text-3xl py-3">
-            Tell us the difference between nodejs and express js.
+            3. Tell us the difference between nodejs and express js.
           </h2>
           <p>
             Node.js is a platform for building server-side event-driven I/O
@@ -78,33 +83,16 @@ const Blog = () => {
           </p>
         </div>
         <div>
-          <h1>What is a custom hook, and why will you create a custom hook?</h1>
+          <h1 className="text-3xl py-3">
+            {" "}
+            4. What is a custom hook, and why will you create a custom hook?
+          </h1>
           <p>
             A custom hook is a function that starts with the word “use” and may
             call other hooks inside it. Custom hooks allow you to reuse logic
             between components without repeating code or adding complexity to
             the component tree. Custom hooks can also help you organize your
             code and make it more readable and maintainable.
-          </p>
-          <p>
-            You would create a custom hook when you have some common
-            functionality that you want to share between different components,
-            such as fetching data, subscribing to events
-          </p>
-        </div>
-        <div>
-          <h1 className="text-3xl">
-            What is a custom hook, and why will you create a custom hook?
-          </h1>
-          <p>
-            A custom hook is a function that starts with the word “use” and may
-            call other hooks inside it. Custom hooks allow you to reuse logic
-            between components without repeating code or adding complexity to
-            the component tree.
-          </p>
-          <p>
-            Custom hooks can also help you organize your code and make it more
-            readable and maintainable.
           </p>
           <p>
             You would create a custom hook when you have some common

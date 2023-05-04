@@ -21,7 +21,7 @@ const Blog = () => {
           )}
         </Pdf>
       </div>
-      <div ref={ref} className=" p-6">
+      <div ref={ref} className=" p-6 bg-slate-200 ">
         <div>
           <h2 className="text-3xl py-3">
             1. Tell us the differences between uncontrolled and controlled

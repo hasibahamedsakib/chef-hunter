@@ -9,8 +9,8 @@ import {
   signOut,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import app from "../Firebase/firebase.config";
+
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
@@ -42,24 +42,10 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
   const googleLogin = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        const user = result.user;
-        setUsers(user);
-        <NavLink to="/" />;
-        console.log(user);
-      })
-      .catch((err) => console.log(err.message));
+    return signInWithPopup(auth, googleProvider);
   };
   const githubLogin = () => {
-    signInWithPopup(auth, githubProvider)
-      .then((result) => {
-        const user = result.user;
-        setUsers(user);
-        <NavLink to="/" />;
-        console.log(user);
-      })
-      .catch((err) => console.log(err.message));
+    return signInWithPopup(auth, githubProvider);
   };
   const contextValue = {
     userRegister,

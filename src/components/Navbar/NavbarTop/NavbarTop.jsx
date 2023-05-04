@@ -31,7 +31,7 @@ const NavbarTop = () => {
         </div>
 
         {/* recipe side */}
-        <div className="md:space-x-8 flex font-semibold flex-col md:flex-row space-y-2 ms:space-y-0">
+        <div className="md:space-x-8 flex font-semibold flex-col md:flex-row space-y-2 md:space-y-0">
           <p className="flex items-center hover:text-slate-800">
             <span className="text-orange-500 mr-3">
               <FaRegFileAlt />

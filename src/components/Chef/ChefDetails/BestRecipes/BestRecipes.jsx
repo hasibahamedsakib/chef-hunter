@@ -52,9 +52,9 @@ const BestRecipes = ({ bestRecipe }) => {
           Main <span className="text-orange-500">Ingredients</span>
         </h5>
 
-        {ingredients.map((ing) => (
+        {ingredients.map((ing, index) => (
           <>
-            <li className="flex space-x-3 items-center font-sans">
+            <li key={index} className="flex space-x-3 items-center font-sans">
               <FaCheckCircle className="" />
               <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
                 {ing}

@@ -8,7 +8,6 @@ import {
   FaRegHeart,
   FaRegShareSquare,
 } from "react-icons/fa";
-import LazyLoad from "react-lazyload";
 import { useLoaderData } from "react-router-dom";
 import BestRecipes from "./BestRecipes/BestRecipes";
 const ChefDetails = () => {
@@ -27,13 +26,13 @@ const ChefDetails = () => {
     <>
       <div className="containeR">
         <div className="mx-auto flex flex-col items-center bg-white shadow-md rounded-lg  md:flex-row md:max-w-6xl hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-          <LazyLoad height={500} width={500}>
-            <img
-              className="object-cover w-full rounded-t-lg h-auto lg:h-[300px] md:h-auto md:w-48 lg:w-[500px] md:rounded-none md:rounded-l-lg hover:rotate-6 transition-all duration-500 hover:scale-90 hover:bg-[#ffb23f] p-6  rounded-lg "
-              src={img_url}
-              alt=""
-            />
-          </LazyLoad>
+          {/* <LazyLoad height={500} width={500}> */}
+          <img
+            className="object-cover w-full rounded-t-lg h-auto lg:h-[300px] md:h-auto md:w-48 lg:w-[500px] md:rounded-none md:rounded-l-lg hover:rotate-6 transition-all duration-500 hover:scale-90 hover:bg-[#ffb23f] p-6  rounded-lg "
+            src={img_url}
+            alt=""
+          />
+          {/* </LazyLoad> */}
           <div className="flex  flex-col justify-between p-4 leading-normal pr-10">
             <div className="flex justify-between font-semibold mb-6">
               <span className="rounded-xl bg-orange-100 px-3 py-1">Lunch</span>

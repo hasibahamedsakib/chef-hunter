@@ -29,6 +29,29 @@ const Login = () => {
         return setError(error.message);
       });
   };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+
+        Swal.fire("Login success!", "Google Login Complete", "success");
+        navigate(from || "/");
+        console.log(user);
+      })
+      .catch((err) => setError(err.message));
+  };
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((result) => {
+        const user = result.user;
+        Swal.fire("Login success!", "GitHub Login Complete", "success");
+        navigate(from || "/");
+
+        console.log(user);
+      })
+      .catch((err) => setError(err.message));
+  };
   return (
     <div className="grid justify-center content-center bg-no-repeat bg-cover bg-left-top h-full py-10">
       <Card className="lg:w-[450px] p-4">
@@ -95,7 +118,7 @@ const Login = () => {
         <Button
           gradientDuoTone="cyanToBlue"
           size="lg"
-          onClick={() => googleLogin()}
+          onClick={handleGoogleLogin}
         >
           <FaGoogle className="mr-2" />
           Login With Google
@@ -103,7 +126,7 @@ const Login = () => {
         <Button
           size="lg"
           gradientMonochrome="success"
-          onClick={() => githubLogin()}
+          onClick={handleGithubLogin}
         >
           <FaGithub className="mr-2" />
           Login With Github

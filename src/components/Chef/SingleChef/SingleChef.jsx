@@ -1,7 +1,7 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Button, Card } from "flowbite-react";
-import React from "react";
+import React, { lazy } from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const SingleChef = ({ chef }) => {
@@ -17,7 +17,7 @@ const SingleChef = ({ chef }) => {
 
   return (
     <div className="max-w-sm pb-6">
-      <Card imgAlt="this is image" imgSrc={img_url}>
+      <Card imgSrc={img_url} onLoad={lazy}>
         <h5 className="text-2xl font-bold tracking-tight text-slate-600 dark:text-white  hover:text-orange-500 duration-300">
           {name}
         </h5>

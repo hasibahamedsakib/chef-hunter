@@ -1,22 +1,52 @@
 import React from "react";
+import { FaPrint, FaRegHeart, FaRegShareSquare } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
-
 const ChefDetails = () => {
   const data = useLoaderData();
-  const { img_url } = data;
-  console.log(data);
+  const {
+    img_url,
+    name,
+    description,
+    cuisine,
+    experience_years,
+    rating,
+    best_recipes,
+  } = data;
+  // console.log(data);
   return (
     <>
-      <div
-        className={`w-full h-[300px] bg-cover bg-center `}
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(${img_url})`,
-        }}
-      >
-        <h1 className="text-6xl text-center text-white">{data.name}</h1>
-      </div>
-      <div>
-        <h1>hello</h1>
+      <div className="containeR">
+        <div className="mx-auto flex flex-col items-center bg-white shadow-md rounded-lg  md:flex-row md:max-w-6xl hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+          <img
+            className="object-cover w-full rounded-t-lg h-auto lg:h-[300px] md:h-auto md:w-48 lg:w-[500px] md:rounded-none md:rounded-l-lg hover:rotate-6 transition-all duration-500 hover:scale-90 hover:bg-orange-500 p-6  rounded-lg "
+            src={img_url}
+            alt=""
+          />
+          <div className="flex flex-col justify-between p-4 leading-normal pr-10">
+            <div className="flex justify-between font-semibold mb-6">
+              <span className="rounded-xl bg-orange-200 px-3 py-1">Lunch</span>
+              <span className="flex items-center gap-x-3">
+                {" "}
+                <FaRegHeart /> Like
+              </span>
+              <span className="flex items-center gap-x-3">Rating</span>
+              <span className="flex items-center gap-x-3">
+                {" "}
+                <FaPrint /> Print
+              </span>
+              <span className="flex items-center gap-x-3">
+                {" "}
+                <FaRegShareSquare /> Share
+              </span>
+            </div>
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              This is {name}
+            </h5>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {description}
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

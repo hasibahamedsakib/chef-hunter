@@ -89,9 +89,9 @@ const Login = () => {
             Login
           </Button>
         </form>
-        <p className="text-orange-500 text-center">
-          <hr />
-        </p>
+
+        <hr />
+
         <Button
           gradientDuoTone="cyanToBlue"
           size="lg"

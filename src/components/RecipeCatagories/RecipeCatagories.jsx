@@ -17,7 +17,7 @@ const RecipeCatagories = () => {
         </p>
         <h1 className="text-5xl font-bold text-slate-800">Recipe Categories</h1>
       </div>
-      <div className="my-8 flex items-center justify-between px-4 ">
+      <div className="my-8 flex items-center justify-between px-4 flex-col md:flex-row ">
         {categories.map((catagories) => (
           <SingleCatagories catagories={catagories} key={catagories.id} />
         ))}

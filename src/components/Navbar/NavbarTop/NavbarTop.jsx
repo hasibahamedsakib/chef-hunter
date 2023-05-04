@@ -16,7 +16,7 @@ const NavbarTop = () => {
   const { users, logoutUser } = useContext(AuthContext);
   return (
     <div className="bg-[#f2f1ee]">
-      <div className="text-[#8c8e95] flex items-center justify-between containeR">
+      <div className="text-[#8c8e95] flex items-center justify-center md:justify-between containeR flex-col md:flex-row space-y-2 md:space-y-0">
         <div className=" space-x-5 flex ">
           <FaFacebookSquare
             title="facebook"
@@ -31,7 +31,7 @@ const NavbarTop = () => {
         </div>
 
         {/* recipe side */}
-        <div className="space-x-8 flex font-semibold">
+        <div className="md:space-x-8 flex font-semibold flex-col md:flex-row space-y-2 ms:space-y-0">
           <p className="flex items-center hover:text-slate-800">
             <span className="text-orange-500 mr-3">
               <FaRegFileAlt />

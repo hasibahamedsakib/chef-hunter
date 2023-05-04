@@ -1,8 +1,9 @@
-import { Button, Card, Rating } from "flowbite-react";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+import { Button, Card } from "flowbite-react";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
 const SingleChef = ({ chef }) => {
   const {
     id,
@@ -13,6 +14,7 @@ const SingleChef = ({ chef }) => {
     rating,
     best_recipes,
   } = chef;
+
   return (
     <div className="max-w-sm pb-6">
       <Card imgAlt="this is image" imgSrc={img_url}>
@@ -20,14 +22,14 @@ const SingleChef = ({ chef }) => {
           {name}
         </h5>
         <div className="flex gap-3 items-center justify-between">
-          <Rating size="md">
-            <Rating.Star className="text-slate-800" />
-            <Rating.Star className="text-slate-800" />
-            <Rating.Star className="text-slate-800" />
-            <Rating.Star className="text-slate-800" />
-            <Rating.Star filled={false} />
-          </Rating>
-          <span className="text-slate-700 gap-x-2 flex font-bold items-center">
+          {
+            <Rating
+              style={{ maxWidth: 140, color: "gray" }}
+              value={rating}
+              readOnly
+            />
+          }
+          <span className="text-slate-500 gap-x-2 flex font-bold items-center">
             <FaHeart className="h-5 w-5" /> 105
           </span>
         </div>

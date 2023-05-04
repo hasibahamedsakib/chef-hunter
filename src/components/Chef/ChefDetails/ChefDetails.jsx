@@ -1,8 +1,15 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import React from "react";
-import { FaPrint, FaRegHeart, FaRegShareSquare } from "react-icons/fa";
+import {
+  FaCircle,
+  FaHouseUser,
+  FaPrint,
+  FaRegHeart,
+  FaRegShareSquare,
+} from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import BestRecipes from "./BestRecipes/BestRecipes";
 const ChefDetails = () => {
   const data = useLoaderData();
   const {
@@ -14,7 +21,7 @@ const ChefDetails = () => {
     rating,
     best_recipes,
   } = data;
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <div className="containeR">
@@ -24,7 +31,7 @@ const ChefDetails = () => {
             src={img_url}
             alt=""
           />
-          <div className="flex flex-col justify-between p-4 leading-normal pr-10">
+          <div className="flex  flex-col justify-between p-4 leading-normal pr-10">
             <div className="flex justify-between font-semibold mb-6">
               <span className="rounded-xl bg-orange-100 px-3 py-1">Lunch</span>
               <span className=" gap-x-2 flex items-center">
@@ -42,17 +49,31 @@ const ChefDetails = () => {
                 <FaRegShareSquare className="text-[#ffb23f] h-5 w-5" /> Share
               </span>
             </div>
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-[#ffb23f]">
               This is {name}
             </h5>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
               {description}
             </p>
-            <div className="flex gap-x-3 flex-grow ">
-              <span className="bg-slate-100 p-3">Profational</span>
-              <span className="bg-slate-100 p-3">Cuisine :{cuisine}</span>
+            <div className="flex gap-x-3 py-2  lg:justify-end ">
+              <span className="bg-slate-100 flex items-center gap-x-2  p-3 px-4 rounded-3xl">
+                <FaCircle className="h-4 w-4 text-[#ffb23f]" />
+                Profational
+              </span>
+              <span className="bg-slate-100 p-3 px-4 flex gap-x-3 items-center rounded-3xl">
+                <FaHouseUser className="h-5 w-5 text-[#ffb23f]" />
+                Cuisine{" "}
+                <span className="hover:text-[#ffb23f] font-semibold">
+                  {cuisine}
+                </span>
+              </span>
             </div>
           </div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 mx-5 my-10">
+          {best_recipes.map((bestRecipe, index) => (
+            <BestRecipes bestRecipe={bestRecipe} key={index} />
+          ))}
         </div>
       </div>
     </>

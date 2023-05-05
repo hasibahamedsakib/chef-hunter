@@ -22,10 +22,10 @@ const Register = () => {
     const photoURL = event.target.photoURL.value;
 
     if (password.length < 6) {
-      setError("password must be 6 character");
+      return setError("password must be 6 character");
     }
     if (email.length < 1) {
-      setError("Please provide your email address");
+      return setError("Please provide your email address");
     }
 
     userRegister(email, password)
@@ -41,7 +41,6 @@ const Register = () => {
               console.log("profile update");
             })
             .catch((error) => {
-              console.log(error.message);
               return setError(error.message);
             });
         }
@@ -52,7 +51,6 @@ const Register = () => {
           "success"
         );
         navigate("/");
-        console.log(currentUser);
       })
       .catch((err) => setError(err.message));
   };

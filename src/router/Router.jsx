@@ -65,10 +65,6 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
       },
-      {
-        path: "pages",
-        element: <></>,
-      },
     ],
   },
 ]);

@@ -17,12 +17,20 @@ const Login = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     setError("");
-
+    if (password.length < 6) {
+      setError("password must be 6 character");
+    }
+    if (email.length < 1) {
+      setError("Please provide your email address");
+    }
     userLogin(email, password)
       .then((result) => {
         const currentUser = result.user;
-        console.log(currentUser);
-        Swal.fire("Login success!", "You are already loggedIn", "success");
+        Swal.fire(
+          `YaHoo!! ${currentUser && currentUser?.displayName}`,
+          "Login SuccessFull...",
+          "success"
+        );
         navigate(from || "/");
       })
       .catch((error) => {
@@ -35,17 +43,24 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
 
-        Swal.fire("Login success!", "Google Login Complete", "success");
+        Swal.fire(
+          `YaHoo!! ${user && user?.displayName}`,
+          "Google Login SuccessFull...",
+          "success"
+        );
         navigate(from || "/");
-        console.log(user);
       })
       .catch((err) => setError(err.message));
   };
   const handleGithubLogin = () => {
     githubLogin()
       .then((result) => {
-        const user = result.user;
-        Swal.fire("Login success!", "GitHub Login Complete", "success");
+        const currentUser = result.user;
+        Swal.fire(
+          `YaHoo!! ${currentUser && currentUser?.displayName}`,
+          "GitHub Login SuccessFull...",
+          "success"
+        );
         navigate(from || "/");
       })
       .catch((err) => setError(err.message));

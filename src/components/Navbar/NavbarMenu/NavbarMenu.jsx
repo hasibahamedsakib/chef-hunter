@@ -23,12 +23,7 @@ const NavbarMenu = () => {
         >
           Favorite Recipes
         </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "active" : "")}
-          to="/pages"
-        >
-          Pages
-        </NavLink>
+
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "")}
           to="/blog"

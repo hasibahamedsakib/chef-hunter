@@ -19,9 +19,9 @@ const NavbarMenu = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "")}
-          to="/submit-recipes"
+          to="/saved-recipes"
         >
-          Submit Recipes
+          Favorite Recipes
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "")}

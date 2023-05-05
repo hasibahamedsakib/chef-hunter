@@ -17,7 +17,7 @@ const SingleChef = ({ chef }) => {
 
   return (
     <div className="max-w-sm pb-6">
-      <Card imgSrc={img_url} onLoad={lazy}>
+      <Card imgSrc={img_url} onLoad={lazy} imgAlt="this is chef image">
         <h5 className="text-2xl font-bold tracking-tight text-slate-600 dark:text-white  hover:text-orange-500 duration-300">
           {name}
         </h5>

@@ -14,7 +14,7 @@ const Contact = () => {
               <TextInput
                 id="email1"
                 type="email"
-                placeholder="name@flowbite.com"
+                placeholder="Enter Your email"
                 required={true}
               />
             </div>
@@ -30,7 +30,9 @@ const Contact = () => {
               />
             </div>
 
-            <Button type="submit">Submit your Comment</Button>
+            <Button gradientDuoTone="greenToBlue" type="submit">
+              Submit your Message
+            </Button>
           </form>
         </Card>
       </div>

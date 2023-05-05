@@ -47,8 +47,6 @@ const Login = () => {
         const user = result.user;
         Swal.fire("Login success!", "GitHub Login Complete", "success");
         navigate(from || "/");
-
-        console.log(user);
       })
       .catch((err) => setError(err.message));
   };

@@ -10,6 +10,7 @@ import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
 import Error from "../pages/Error/Error";
 import Main from "../pages/Main/Main";
+import SavedRecipes from "../pages/SavedRecipes/SavedRecipes";
 
 const router = createBrowserRouter([
   {
@@ -48,8 +49,8 @@ const router = createBrowserRouter([
         element: <LatestRecipes />,
       },
       {
-        path: "submit-recipes",
-        element: <></>,
+        path: "saved-recipes",
+        element: <SavedRecipes />,
       },
       {
         path: "contact",

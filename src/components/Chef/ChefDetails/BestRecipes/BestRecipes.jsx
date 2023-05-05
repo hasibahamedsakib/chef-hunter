@@ -4,12 +4,14 @@ import { Button, Card, Tooltip } from "flowbite-react";
 import React, { useState } from "react";
 import { FaCheckCircle, FaRegHeart } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { addToDb } from "../../../../utils/localStorage";
 const BestRecipes = ({ bestRecipe }) => {
   const [disable, setDisable] = useState(false);
   //   console.log(bestRecipe);
   const { cooking_method, ingredients, name, rating } = bestRecipe;
 
   const handleTost = () => {
+    addToDb(name);
     setDisable(true);
     Swal.fire(
       "Favorite !!!",

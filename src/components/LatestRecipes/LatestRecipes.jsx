@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 
 import { Button } from "flowbite-react";
+import Loading from "../../pages/Loader/Loading";
 import SingleRecipes from "./SingleRecipes/SingleRecipes";
 
 const LatestRecipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://chef-hunter-server-rho.vercel.app/recipes")
       .then((res) => res.json())
-      .then((data) => setRecipes(data));
+      .then((data) => {
+        setRecipes(data);
+        setLoading(false);
+      });
   }, []);
 
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div
       className="py-20"

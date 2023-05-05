@@ -50,7 +50,12 @@ const router = createBrowserRouter([
       },
       {
         path: "saved-recipes",
-        element: <SavedRecipes />,
+        element: (
+          <PrivetRoute>
+            {" "}
+            <SavedRecipes />
+          </PrivetRoute>
+        ),
       },
       {
         path: "contact",

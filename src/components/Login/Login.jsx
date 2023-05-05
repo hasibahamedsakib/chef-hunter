@@ -18,10 +18,10 @@ const Login = () => {
     const password = event.target.password.value;
     setError("");
     if (password.length < 6) {
-      setError("password must be 6 character");
+      return setError("password must be 6 character");
     }
     if (email.length < 1) {
-      setError("Please provide your email address");
+      return setError("Please provide your email address");
     }
     userLogin(email, password)
       .then((result) => {

@@ -10,7 +10,7 @@ const Contact = () => {
     e.preventDefault();
     Swal.fire(
       `Hello ${users?.displayName}`,
-      `Your Message Already Send to Author`,
+      `Your Message Already Gone`,
       "success"
     );
     navigate("/");

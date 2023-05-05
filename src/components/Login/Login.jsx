@@ -27,7 +27,7 @@ const Login = () => {
       .then((result) => {
         const currentUser = result.user;
         Swal.fire(
-          `YaHoo!! ${currentUser && currentUser?.displayName}`,
+          `Hurrah!! ${currentUser && currentUser?.displayName}`,
           "Login SuccessFull...",
           "success"
         );
@@ -44,7 +44,7 @@ const Login = () => {
         const user = result.user;
 
         Swal.fire(
-          `YaHoo!! ${user && user?.displayName}`,
+          `Hurrah!! ${user && user?.displayName}`,
           "Google Login SuccessFull...",
           "success"
         );
@@ -57,7 +57,7 @@ const Login = () => {
       .then((result) => {
         const currentUser = result.user;
         Swal.fire(
-          `YaHoo!! ${currentUser && currentUser?.displayName}`,
+          `Hurrah!! ${currentUser && currentUser?.displayName}`,
           "GitHub Login SuccessFull...",
           "success"
         );
